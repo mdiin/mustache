@@ -1,3 +1,3 @@
 resolving
-valueInContext: anObject
-	^ (super valueInContext: anObject) asHTMLString 
+valueInContext: aStack
+	^ (super valueInContext: aStack) asHTMLString 

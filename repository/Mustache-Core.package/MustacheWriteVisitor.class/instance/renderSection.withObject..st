@@ -4,6 +4,7 @@ renderSection: aSection withObject: anObject
 		mustacheDo: [:item|
 			"if we are in collection context the lookup context
 			is shifted to the actual element of the collection"
-			item notNil ifTrue: [  context := item ].
-			self visitCompositePart: aSection ]
+			item notNil ifTrue: [  self pushContext: item ].
+			self visitCompositePart: aSection.
+			item notNil ifTrue: [ self popContext ] ]
 		inContext: anObject

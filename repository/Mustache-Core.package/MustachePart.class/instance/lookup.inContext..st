@@ -1,3 +1,8 @@
 resolving
-lookup: aToken inContext: anObject
-	^ anObject mustacheLookup: aToken
+lookup: aToken inContext: aStack
+	aStack do: [ :ctx |
+		| val |
+		val := ctx mustacheLookup: aToken.
+		val ifNotNil: [ ^ val ].
+		].
+	^ nil
